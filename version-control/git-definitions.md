@@ -12,7 +12,7 @@
 
 * What is a commit? What makes a good commit message?
 
-  A commit is basically creating a "save point" in your repository. It allows developers the opportunity to update their code frequently, and create an expansive history of the project. It also is a slice in time of the project, and teammates can look back through the history of the project, as well as rollback if needed. 
+  A commit is basically creating a "save point" in your repository. It allows developers the opportunity to update their code frequently, and create an expansive history of the entire project. It also is a slice in time of the project, and teammates can look back through the history of the project, as well as rollback if needed. 
 
   A good commit message succinctly mentions the changes made to the file, in a clear and concise way. It also should be voiced in the present tense. It is important to know that others (especially in the future), might be reading the log history, and we want to make sure they understand exactly why we made the commit, and what changes we made.
 
