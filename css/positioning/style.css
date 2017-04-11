@@ -1,0 +1,30 @@
+
+.container {
+  position: relative;
+  top: 0;
+  left: 45%;
+}
+
+img#octopus {
+  position: relative;
+  top: 100px;
+  left: 0;
+}
+
+img#hat {
+  position: absolute;
+  top: 30px;
+  left: -15px;
+  z-index: 1;
+}
+
+img#glasses {
+  position: absolute;
+  top: 200px;
+  left: 45px;
+  z-index: 2;
+}
+
+
+
+
