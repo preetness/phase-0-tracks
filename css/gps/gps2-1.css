@@ -1,3 +1,38 @@
 * {
-  color: red;
+  font-family: 'Playfair Display', serif;
+}
+
+h1 {
+  text-align: center;
+  color: blue;
+  display: block;
+  font-size: 2em;
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.column-1, .column-2 {
+  display: inline-block;
+  width: 47%;
+  vertical-align: top;
+  border: 1px solid black;
+  margin: 0 auto;
+  padding: 1%;
+  height: 500px;
+  overflow: scroll;
+  margin-top: 30px;
+}
+
+footer {
+  clear: both;
+  padding-top: 25px;
+}
+
+img {
+  width: 75%;
+  height: 75%;
 }
