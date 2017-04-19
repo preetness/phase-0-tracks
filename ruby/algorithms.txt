@@ -1,0 +1,21 @@
+Using an Elevator:
+
+-If floor desired is higher than current floor
+  -Press the up arrow key
+  -Otherwise press the down arrow key
+-When elevator door opens, enter and wait for the door to shut
+  -If door does not shut, press the >< (close) button
+-Depress the button corresponding to the floor you desire to go to
+  -If it's unknown which floor to go to, ask for instructions from human
+-When the desired floor illuminates on screen, exit the elevator
+
+Making Chai:
+
+-Grab a stainless steel pot
+-Pour 8 ounces of water into the pot
+-Gather a spoonful of fennel seeds, 1 or 2 cardamom pods, a heaping tablespoon of sugar, and a black tea bag
+-Place all of the ingredients into the water, and bring to a boil (approximately 5 minutes)
+-Add several ounces of milk to boiling water
+-Wait until the chai starts to boil and froth, then turn off heat
+-Grab a mug, and filter chai into mug using a strainer
+-Enjoy!
