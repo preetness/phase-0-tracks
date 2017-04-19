@@ -1,3 +1,7 @@
+body {
+  width: 960px;
+}
+
 blockquote {
   border-left: 5px solid blue;
   padding: 15px;
@@ -9,9 +13,11 @@ cite {
   margin-top: 10px;
 }
 
-#external-links ul {
+#external-links {
+  width: 200px;
   list-style-type: none;
-  padding-left: 0px;
+  float: right;
+
 }
 
 /* you're welcome to edit the
@@ -30,3 +36,14 @@ figcaption {
   font-style: italic;
   text-align: right;
 }
+
+body {
+  width: 960px;
+}
+
+main {
+  width: 756px;
+  float: left;
+}
+
+
