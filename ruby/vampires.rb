@@ -32,7 +32,16 @@ while counter < num_of_employees
     health_insurance = true 
   end 
 
-  if vampire_name == ("Drake Cula" || "Tu Fang")
+  until employee_allergy == "sunshine"
+    puts "Please list your allergies. When you are finished, type 'done'."
+    employee_allergy = gets.chomp
+  end
+
+  if employee_allergy == "sunshine"
+    puts "Probably a vampire."
+  end
+
+  if vampire_name == "Drake Cula" || vampire_name == "Tu Fang")
     puts "Definitely a vampire."
     
   elsif current_year - vampire_year == vampire_age && (garlic_bread || health_insurance)
