@@ -1,3 +1,4 @@
+
 def vampire
 
 current_year = 2017
@@ -37,11 +38,13 @@ while counter < num_of_employees
 
   puts "Please list your allergies. When you are finished listing your allergies, type 'done'."
   until employee_allergy == "sunshine" || employee_allergy == "done"
+
     employee_allergy = gets.chomp
   end
 
   if employee_allergy == "sunshine"
     puts "Probably a vampire."
+
   else
     puts "Results inconclusive."
   end
@@ -59,6 +62,7 @@ while counter < num_of_employees
 
   elsif current_year - vampire_year != vampire_age && (garlic_bread && health_insurance)
     puts "Almost certainly a vampire."
+
   end
 
   counter += 1
