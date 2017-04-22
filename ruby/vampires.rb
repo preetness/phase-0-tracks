@@ -1,4 +1,8 @@
+
+def vampire
+
 current_year = 2017
+employee_allergy = nil
 
 puts "How many employees will be processed in this survey?"
 num_of_employees = gets.to_i
@@ -32,16 +36,20 @@ while counter < num_of_employees
     health_insurance = true 
   end 
 
-  until employee_allergy == "sunshine"
-    puts "Please list your allergies. When you are finished, type 'done'."
+  puts "Please list your allergies. When you are finished listing your allergies, type 'done'."
+  until employee_allergy == "sunshine" || employee_allergy == "done"
+
     employee_allergy = gets.chomp
   end
 
   if employee_allergy == "sunshine"
     puts "Probably a vampire."
+
+  else
+    puts "Results inconclusive."
   end
 
-  if vampire_name == "Drake Cula" || vampire_name == "Tu Fang")
+  if vampire_name == "Drake Cula" || vampire_name == "Tu Fang"
     puts "Definitely a vampire."
     
   elsif current_year - vampire_year == vampire_age && (garlic_bread || health_insurance)
@@ -55,10 +63,10 @@ while counter < num_of_employees
   elsif current_year - vampire_year != vampire_age && (garlic_bread && health_insurance)
     puts "Almost certainly a vampire."
 
-  else 
-    puts "Results inconclusive."
-
   end
 
   counter += 1
 end
+end
+
+vampire
