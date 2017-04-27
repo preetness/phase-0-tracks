@@ -54,3 +54,16 @@ job_application = {
 }
 
 p job_application
+
+puts "Would you like to update a key? (y/n"
+update = gets.chomp
+
+if update == 'y'
+  puts "Please enter the new key:"
+  new_key = gets.to_sym
+  job_application[:new_key]
+else
+  update = false
+end
+
+p job_application
