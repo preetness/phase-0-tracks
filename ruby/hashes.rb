@@ -55,7 +55,7 @@ job_application = {
 
 p job_application
 
-puts "Would you like to update a key? (y/n"
+puts "Would you like to update a key? (y/n)"
 update = gets.chomp
 
 if update == 'y'
