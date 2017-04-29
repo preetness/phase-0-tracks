@@ -1,3 +1,16 @@
+#Initialize an array
+
+sample_array = []
+
+#Manipulate array 
+
+sample_array << 2 
+sample_array << 4
+
+#Access array 
+
+sample_array[1]
+
 #Prompt user for name
 
 puts "What is your full name?"
@@ -53,17 +66,16 @@ job_application = {
   :start_date => start_date
 }
 
-p job_application
-
 puts "Would you like to update a key? (y/n)"
 update = gets.chomp
 
 if update == 'y'
-  puts "Please enter the new key:"
-  new_key = gets.to_sym
-  job_application[:new_key]
-else
-  update = false
+  puts "Please enter the key you want to update:"
+  update_this_key = gets.chomp.to_sym
+  puts "What is the new key name?"
+  new_key = gets.chomp.to_sym
 end
+
+job_application[new_key] = job_application.delete(update_this_key)
 
 p job_application
