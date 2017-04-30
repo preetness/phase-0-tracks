@@ -7,19 +7,68 @@ zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
 # printing each item in the array separated by an asterisk
 # ----
 
+zombie_apocalypse_supplies.each do |item|
+  puts "#{item}"
+  puts "*"
+end
+
 # 2. In order to keep yourself organized, sort your zombie_apocalypse_supplies
 # in alphabetical order. Do not use any special built-in methods.
 # ----
+
+def supply_sort(arr)
+  num = arr.length
+  loop do
+    swapped = false
+
+    (num-1).times do |i|
+      if arr[i].downcase > arr[i+1].downcase
+        arr[i], arr[i+1] = arr[i+1], arr[i]
+        swapped = true
+      end
+    end
+
+    break if not swapped
+  end
+
+  arr
+end
+
+supply_sort(zombie_apocalypse_supplies)
 
 # 3. Create a method to see if a particular item (string) is in the
 # zombie_apocalypse_supplies. Do not use any special built-in methods.
 # For instance: are boots in your list of supplies?
 # ----
 
+def item_included?(str, arr)
+  arr.each do |item|
+    return true if item == str
+  end
+    false
+end
+
+item_included?("knife", zombie_apocalypse_supplies)
+item_included?("rations", zombie_apocalypse_supplies)
+
 # 4. You can't carry too many things, you've only got room in your pack for 5.
 # Remove items in your zombie_apocalypse_supplies in any way you'd like,
 # leaving only 5. Do not use any special built-in methods.
 # ----
+
+def remove_items(arr)
+  counter = arr.length
+  new_array = []
+  arr.each do |item|
+    if new_array.length < 5
+    new_array << item
+    counter -= 1
+    end
+  end
+ new_array
+end
+
+remove_items(zombie_apocalypse_supplies)
 
 # 5. You found another survivor! This means you can combine your supplies.
 # Create a new combined supplies list out of your zombie_apocalypse_supplies
@@ -29,6 +78,13 @@ zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
 other_survivor_supplies = [ "warm clothes", "rations", "compass", "camp stove",
                             "solar battery", "flashlight"]
 # ----
+
+def combine_arrays(array1, array2)
+  (array1 + array2).uniq.sort
+end
+
+combine_arrays(zombie_apocalypse_supplies, other_survivor_supplies)
+
 
 # Hash Drills
 
@@ -46,15 +102,30 @@ extinct_animals = {
 # with a dash in between the key and value, and an asterisk between each pair.
 # ----
 
+extinct_animals.each do |animal, year_extinct|
+  puts "#{animal} - #{year_extinct}"
+  puts "*"
+end
+
 # 2. Keep only animals in extinct_animals if they were extinct before
 # the year 2000. Do not use any special built-in methods.
 # ----
+
+extinct_animals.each do |animal, year_extinct|
+  if year_extinct >= 2000
+    extinct_animals.delete(animal)
+  end
+end
 
 # 3. Our calculations were completely off, turns out all of those animals went
 # extinct 3 years before the date provided. Update the values in extinct_animals
 # so they accurately reflect what year the animal went extinct.
 # Do not use any special built-in methods.
 # ----
+
+extinct_animals.each do |animal, year_extinct|
+  extinct_animals[animal] -= 3
+end
 
 # 4. You've heard that the following animals might be extinct, but you're not sure.
 # Check if they're included in extinct_animals, one by one:
@@ -64,8 +135,22 @@ extinct_animals = {
 # Do not use any special built-in methods.
 # ----
 
+def item_included?(str, hash)
+  hash.each do |key, value|
+    return true if key == str
+  end
+    false
+end
+
+item_included?("Andean Cat")
+item_included?("Dodo")
+item_included?("Saiga Antelope")
+
 # 5. We just found out that the Passenger Pigeon is actually not extinct!
 # Remove them from extinct_animals and return the key value pair as a two item array.
 # Find the built-in method that helps you accomplish this in the Ruby documentation
 # for Hashes.
 # ----
+
+extinct_animals.assoc("Passenger Pigeon")
+
