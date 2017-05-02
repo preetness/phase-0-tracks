@@ -1,5 +1,8 @@
 class Santa
 
+attr_reader :age, :ethnicity, :reindeer_ranking
+attr_accessor :gender
+
 def initialize(gender, ethnicity)
   @gender = gender
   @ethnicity = ethnicity
@@ -17,28 +20,8 @@ def eat_milk_and_cookies(cookie_type)
   puts "That was a good #{cookie_type} cookie!"
 end
 
-def age
-  @age 
-end
-
-def ethnicity 
-  @ethnicity
-end
-
-def gender 
-  @gender
-end
-
-def reindeer_ranking
-  @reindeer_ranking
-end
-
 def celebrate_birthday
   @age += 1
-end
-
-def gender=(change_gender)
-  @gender = change_gender
 end
 
 def get_mad_at(reindeer_name)
@@ -48,7 +31,7 @@ end
 end
 
 
-mr_claus = Santa.new('male', 'white')
+mr_claus = Santa.new('male', 'Asian')
 mr_claus.speak
 mr_claus.eat_milk_and_cookies("chocolate chip")
 
@@ -65,7 +48,7 @@ p mr_claus.age
 p mr_claus.gender
 p mr_claus.ethnicity
 p mr_claus.reindeer_ranking
-p mr_claus.get_mad_at("Vixen")
+mr_claus.get_mad_at("Vixen")
 p mr_claus.reindeer_ranking
 mr_claus.celebrate_birthday
 p mr_claus.age
