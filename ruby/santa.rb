@@ -39,9 +39,9 @@ santas = []
 
 various_genders = ['Female', 'None of your Business', 'Male', 'Bi-Gendered', 'All of the Above', 'Butch', 'Pangender', 'Drag-King', 'Drag-Queen', 'Androgynous', 'Femme', 'Transexual', 'Male to Female', 'Female to Male', 'Hijra' ]
 various_ethnicities = ['Indian', 'Chinese', 'None of your Business', 'Russian', 'Various', 'European', 'African-American', 'Middle Eastern', 'Pacific Islander', 'Native American', 'Hispanic', 'Pakistani', 'Icelandic', 'South American', 'Persian']
-various_genders.length.times do |i|
-  santas << Santa.new(various_genders[i], various_ethnicities[i])
-end
+# various_genders.length.times do |i|
+#   santas << Santa.new(various_genders[i], various_ethnicities[i])
+# end
 
 p mr_claus.age
 p mr_claus.gender
@@ -55,7 +55,7 @@ mr_claus.gender = "all"
 p mr_claus.gender
 
 counter = 0
-while counter < 485
+while counter < 500
 santas << Santa.new(various_genders.sample, various_ethnicities.sample)
 counter += 1
 end
