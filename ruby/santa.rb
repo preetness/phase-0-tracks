@@ -19,7 +19,7 @@ def age
   0
 end
 
-reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
+reindeer_ranking = ['Rudolph', 'Dasher', 'Dancer', 'Prancer', 'Vixen', 'Comet', 'Cupid', 'Donner', 'Blitzen']
 
 
 end
@@ -28,4 +28,13 @@ end
 marcus = Santa.new
 marcus.speak
 marcus.eat_milk_and_cookies("chocolate chip")
+
+santas = []
+
+various_genders = ['male', 'female', 'none of your business', 'male', 'all of the above']
+various_ethnicities = ['Indian', 'Chinese', 'none of your business', 'Russian', 'various']
+
+various_genders.length.times do |i|
+  santas << Santa.new(various_genders[i], various_ethnicities[i])
+end
 
