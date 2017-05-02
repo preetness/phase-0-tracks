@@ -1,8 +1,12 @@
 class Santa
 
+#Set attribute readers
 attr_reader :age, :ethnicity, :reindeer_ranking
+
+#Set attribute reader/writer
 attr_accessor :gender
 
+#Initialize each new instance with these values
 def initialize(gender, ethnicity)
   @gender = gender
   @ethnicity = ethnicity
@@ -20,6 +24,7 @@ def eat_milk_and_cookies(cookie_type)
   puts "That was a good #{cookie_type} cookie!"
 end
 
+#Increase age by one year each time this instance method is called
 def celebrate_birthday
   @age += 1
 end
@@ -54,6 +59,7 @@ p mr_claus.age
 mr_claus.gender = "all"
 p mr_claus.gender
 
+#Use a loop to create 500 new instances of class Santa
 counter = 0
 while counter < 500
 santas << Santa.new(various_genders.sample, various_ethnicities.sample)
