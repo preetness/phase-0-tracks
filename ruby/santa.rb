@@ -6,9 +6,9 @@ attr_accessor :gender
 def initialize(gender, ethnicity)
   @gender = gender
   @ethnicity = ethnicity
-  @age = 0
+  @age = rand(0..140)
   @reindeer_ranking = ['Rudolph', 'Dasher', 'Dancer', 'Prancer', 'Vixen', 'Comet', 'Cupid', 'Donner', 'Blitzen']
-  puts "Initializing Santa instance..."
+  #puts "Initializing Santa instance..."
 end
 
 def speak
@@ -37,9 +37,8 @@ mr_claus.eat_milk_and_cookies("chocolate chip")
 
 santas = []
 
-various_genders = ['male', 'female', 'none of your business', 'male', 'all of the above']
-various_ethnicities = ['Indian', 'Chinese', 'none of your business', 'Russian', 'various']
-
+various_genders = ['Female', 'None of your Business', 'Male', 'Bi-Gendered', 'All of the Above', 'Butch', 'Pangender', 'Drag-King', 'Drag-Queen', 'Androgynous', 'Femme', 'Transexual', 'Male to Female', 'Female to Male', 'Hijra' ]
+various_ethnicities = ['Indian', 'Chinese', 'None of your Business', 'Russian', 'Various', 'European', 'African-American', 'Middle Eastern', 'Pacific Islander', 'Native American', 'Hispanic', 'Pakistani', 'Icelandic', 'South American', 'Persian']
 various_genders.length.times do |i|
   santas << Santa.new(various_genders[i], various_ethnicities[i])
 end
@@ -54,3 +53,13 @@ mr_claus.celebrate_birthday
 p mr_claus.age
 mr_claus.gender = "all"
 p mr_claus.gender
+
+counter = 0
+while counter < 485
+santas << Santa.new(various_genders.sample, various_ethnicities.sample)
+counter += 1
+end
+
+santas.each_with_index do |santa, index|
+  puts "The newly instantiated Santa ##{index + 1} is #{santa.age} years old, of #{santa.ethnicity} ethnicity, and has a gender of #{santa.gender}."
+end
