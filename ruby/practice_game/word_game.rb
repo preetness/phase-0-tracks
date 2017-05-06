@@ -14,8 +14,8 @@
 # - congratulate user if wins, or taunt if loses
 
 class WordGame
-  attr_reader :guess_count, :letters_guessed, :word_progress, :answer
 
+  attr_reader :guess_count, :game_over
 
   def initialize(string)
     @answer = string
@@ -32,7 +32,6 @@ class WordGame
 
   def repeated_letter?(letter)
     check_letter(letter) if !@letters_guessed.include?(letter)
-    p @letters_guessed
   end
 
   def check_letter(letter)
@@ -62,24 +61,28 @@ class WordGame
     end
   end
 
-  def lose
-    @guess_count = 0
-  end
 
 end
 
-word = WordGame.new('hello')
-word.repeated_letter?('h')
-word.repeated_letter?('e')
-word.repeated_letter?('l')
-p word.word_progress
-word.repeated_letter?('hello')
-p word.word_guess('hello')
-p word.word_progress
-p word.guess_count
-p word.progress_update
-p word.win
-word.repeated_letter?('o')
-p word.progress_update
-p word.win
+### USER INTERFACE ###
+
+puts 'Welcome to WordGame!'
+puts 'What word would you like your opponent to guess? Enter here:'
+user_word = gets.chomp
+game = WordGame.new(user_word)
+puts 'What is your first name?'
+user_name = gets.chomp
+
+until game.win || game.guess_count == 0 
+puts "#{user_name}, please guess a letter:"
+user2_guess = gets.chomp
+game.repeated_letter?(user2_guess)
+puts "The current board: #{game.progress_update}"
+puts "You currently have #{game.guess_count} guesses remaining!" if !game.win
+puts "Congratulations #{user_name}! You guessed '#{user_word}' correctly, and won the game!" if game.win
+puts "You have lost the game. Shame on you and your entire family!" if game.guess_count == 0
+end 
+
+
+
 
