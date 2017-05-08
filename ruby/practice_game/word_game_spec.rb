@@ -5,7 +5,6 @@ describe WordGame do
   let(:word) { WordGame.new("horse") }
 
   it "checks if a letter has already been used" do
-    #word.repeated_letter?('h')
     expect(word.repeated_letter?('h').join('')).to eq 'h'
   end
 
