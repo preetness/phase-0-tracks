@@ -1,7 +1,7 @@
 // Reverse a Word
 
 // We are going to write a function that takes in a word as an argument
-var reverse= function (string) {
+var reverse = function (string) {
 // Take the word and split it up into separate indexes in an array
   var split = string.split('')
 // Have a container for the reversed word  
@@ -17,6 +17,15 @@ var reverse= function (string) {
   return reversed.join('')
 };
 
-console.log(reverse('Preet'))
-console.log(reverse('hello'))
-console.log(reverse('programming'))
+//var reversedWord = console.log(reverse('Preet'))
+//var reversedWord = console.log(reverse('hello'))
+//var reversedWord = console.log(reverse('programming'))
+
+
+var advisors = ['Tyler', 'Glenna', 'Emmanuel', 'Andrew']
+
+// Run the following function only if the object is in the array
+if (advisors.indexOf('Tyler') > -1) {
+  console.log(reverse('DevBootCamp'))
+}
+
