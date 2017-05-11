@@ -1,6 +1,22 @@
+// Create an array of colors, and another of horses
+
 var colors = ['blue', 'red', 'green', 'yellow'];
 
-var name = ['Ed', 'Draymond', 'Ronald', 'John'];
+var names = ['Ed', 'Draymond', 'Ronald', 'John'];
+
+// Add an additional color and horse to the corresponding array
 
 colors.push('black');
-name.push('Sven');
+names.push('Sven');
+
+// Create an object, assign the horses to key names, and the values should be colors
+
+var horseColors = function(horse, color) {
+  var horseColors = {}
+  for (var i = 0; i < horse.length; i++) {
+        horseColors[horse[i]] = color[i]
+    }
+  console.log(horseColors)
+};
+
+horseColors(names, colors)
