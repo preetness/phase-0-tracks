@@ -29,12 +29,18 @@ end
 #spy_name('Felicia Torres')
 
 ### USER INTERFACE ###
+user_input = nil
+stored_name = {}
 
-loop do
+until user_input == 'quit'
 puts "Please enter a name to encrypt. Type 'quit' to exit."
 user_input = gets.chomp
-break if user_input == 'quit'
-spy_name = new_name(user_input)
+name = spy_name(user_input)
+stored_name[user_input] = name
 puts 'Your spy name encrypted is:'
-puts spy_name
+puts name
+end
+
+stored_name.each do |real_name, spy_name|
+  puts "#{real_name} is also known as #{spy_name}."
 end
