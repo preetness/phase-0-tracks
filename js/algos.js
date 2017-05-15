@@ -15,18 +15,21 @@ console.log(longestWord(["andrewDBC","glennaDBC","Tyler is my advisor for Phase 
 console.log(longestWord(["long phrase","longest phrase","longer phrase"]));
 console.log(longestWord(["simple phrase","a longer phrase","this is the longest phrase, for sure"]));
 
+// RELEASE 1
 
+// Search through the key-value pairs of objects, and return true if they are the same, false if not
 
-// var doKeyValueMatch = function(objectOne, objectTwo) {
-//   for (var i = 0; i < objectOne.length; i++) {
-//     if objectOne[i] == objectTwo[i]
-//        return true;
-//     else
-//        return false;
-//   }
-// };
+var keyValueMatch = function(obj, obj2) {
+  for(var i in obj) {
+    if(obj.hasOwnProperty(i) && obj[i] === obj2[i]) {
+      return true;
+    }
+  }
+      return false;
+};
 
-// doKeyValueMatch({name: "Steven", age: 54}, {name: "Tamir", age: 54});
+console.log(keyValueMatch({name: "Steven", age: 54}, {name: "Tamir", age: 54}));
+console.log(keyValueMatch({name: "Michael", pets: 7}, {name: "Jimmy", age: 26}));
 
 // RELEASE 2
 
