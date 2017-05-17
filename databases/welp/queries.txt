@@ -1,0 +1,29 @@
+Join three tables at once:
+
+SELECT * FROM reviews INNER JOIN businesses ON reviews.business_id = businesses.id INNER JOIN users ON users.id = reviews.user_id;
+
+Output:
+
+1|4|Great yoga instructor!|3|2|3|Lotus Yoga|2|Angelina|Jolie
+2|2|Terrible tow truck experience.|1|1|1|Amir's Towing|1|Bradford|Pitt
+3|4|Excellent plumber!|5|3|5|Plumbing by Janet|3|Steven|Wonder
+4|1|Sushi was not good at all.|4|4|4|Sushi World|4|Denzel|George
+
+Only select certain columns from those three tables:
+
+SELECT users.first_name, users.last_name, businesses.name, reviews.stars, reviews.comment JWHERE businesses.id = 1; 
+
+Output:
+
+Angelina|Jolie|Lotus Yoga|4|Great yoga instructor!
+Bradford|Pitt|Amir's Towing|2|Terrible tow truck experience.
+Steven|Wonder|Plumbing by Janet|4|Excellent plumber!
+Denzel|George|Sushi World|1|Sushi was not good at all.
+
+Select all three tables for one business:
+
+SELECT * FROM reviews INNER JOIN users ON reviews.user_id = users.id INNER JOIN businesses ON reviews.business_id = businesses.id WHERE businesses.id = 1;
+
+Output:
+
+2|2|Terrible tow truck experience.|1|1|1|Bradford|Pitt|1|Amir's Towing
