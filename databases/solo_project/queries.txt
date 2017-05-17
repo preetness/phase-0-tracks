@@ -1,0 +1,66 @@
+1) 
+
+SELECT * FROM patients;
+
+1|Susan Suppertime|4567890|1
+2|Michael Mooooo|2223131|4
+3|Betty Bhutan|9991212|1
+4|Chris Cooper|3335555|2
+5|Ziggy Zapper|7772345|3
+6|Vladimir Puking|5556767|2
+
+2) 
+
+UPDATE patients SET doctor_id=3 WHERE id=1;
+
+3)
+
+SELECT * FROM patients, doctors WHERE patients.doctor_id = doctors.id;
+
+1|Susan Suppertime|4567890|3|3|Dr. Alan Asthma
+2|Michael Mooooo|2223131|4|4|Dr. David Doolittle
+3|Betty Bhutan|9991212|1|1|Dr. Death
+4|Chris Cooper|3335555|2|2|Dr. Serpentine
+5|Ziggy Zapper|7772345|3|3|Dr. Alan Asthma
+6|Vladimir Puking|5556767|2|2|Dr. Serpentine
+
+4)
+
+SELECT patients.name, doctors.name FROM patients, doctors WHERE patients.doctor_id = doctors.id;
+
+Susan Suppertime|Dr. Alan Asthma
+Michael Mooooo|Dr. David Doolittle
+Betty Bhutan|Dr. Death
+Chris Cooper|Dr. Serpentine
+Ziggy Zapper|Dr. Alan Asthma
+Vladimir Puking|Dr. Serpentine
+
+5) 
+
+DELETE FROM patients WHERE name="Ziggy Zapper";
+
+Updated Table:
+
+1|Susan Suppertime|4567890|3
+2|Michael Mooooo|2223131|4
+3|Betty Bhutan|9991212|1
+4|Chris Cooper|3335555|2
+6|Vladimir Puking|5556767|2
+
+
+6)
+
+SELECT patients.name, doctors.name FROM patients INNER JOIN doctors ON patients.id = doctors.id
+
+Susan Suppertime|Dr. Death
+Michael Mooooo|Dr. Serpentine
+Betty Bhutan|Dr. Alan Asthma
+Chris Cooper|Dr. David Doolittle
+
+SELECT patients.name, doctors.name FROM patients LEFT JOIN doctors ON patients.doctor_id = doctors.id
+
+Susan Suppertime|Dr. Alan Asthma
+Michael Mooooo|Dr. David Doolittle
+Betty Bhutan|Dr. Death
+Chris Cooper|Dr. Serpentine
+Vladimir Puking|Dr. Serpentine
