@@ -45,7 +45,22 @@ Updated Table:
 2|Michael Mooooo|2223131|4
 3|Betty Bhutan|9991212|1
 4|Chris Cooper|3335555|2
-
-
-
 6|Vladimir Puking|5556767|2
+
+
+6)
+
+SELECT patients.name, doctors.name FROM patients INNER JOIN doctors ON patients.id = doctors.id
+
+Susan Suppertime|Dr. Death
+Michael Mooooo|Dr. Serpentine
+Betty Bhutan|Dr. Alan Asthma
+Chris Cooper|Dr. David Doolittle
+
+SELECT patients.name, doctors.name FROM patients LEFT JOIN doctors ON patients.doctor_id = doctors.id
+
+Susan Suppertime|Dr. Alan Asthma
+Michael Mooooo|Dr. David Doolittle
+Betty Bhutan|Dr. Death
+Chris Cooper|Dr. Serpentine
+Vladimir Puking|Dr. Serpentine
