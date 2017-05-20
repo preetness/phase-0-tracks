@@ -1,6 +1,8 @@
 require 'sqlite3'
 require 'faker'
 
+### BUSINESS LOGIC ###
+
 db = SQLite3::Database.new('accounting.db')
 
 employee_table = <<-SQL
@@ -41,20 +43,6 @@ def delete_employee(database, primary_key)
   database.execute("DELETE FROM employees WHERE id=(?)", [primary_key])
 end
 
-# def print_specific_employee(database, last_four_ssn)
-#   employee = database.execute("SELECT * FROM employees WHERE last_four_ssn=(?)", [last_four_ssn])
-#     puts '*' * 30
-#     employee.map do |item|
-#       puts "Employee ID: #{item[0]}"
-#       puts "First Name: #{item[1]}"
-#       puts "Last Name: #{item[2]}"
-#       puts "Compensation: $#{item[3]}".to_s.reverse.gsub(%r{([0-9]{3}(?=([0-9])))}, "\\1,").reverse
-#       puts "Title: #{item[4]}"
-#       puts "SSN Last Four: #{item[5]}"
-#     end
-#     puts '*' * 30
-# end
-
 def print_specific_employee(database, last_four_ssn)
   employee = database.execute("SELECT employees.first_name, employees.last_name, employees.wage, employees.title, businesses.name FROM employees JOIN businesses ON employees.business_id = businesses.id WHERE last_four_ssn = (?)", [last_four_ssn])
     puts '*' * 30
@@ -67,7 +55,6 @@ def print_specific_employee(database, last_four_ssn)
     end
     puts '*' * 30
 end
-
 
 def print_all_employees(database)
   employee = database.execute("SELECT * FROM employees, businesses WHERE employees.business_id = businesses.id;")
@@ -119,18 +106,48 @@ end
 # end
 
 businesses = db.execute('SELECT * FROM businesses')
-
 employees = db.execute('SELECT * FROM employees')
 
-# p employees
-# p businesses
+### USER INTERFACE ###
 
+puts "WELCOME TO PWC EMPLOYEE/BUSINESS DATABASE. PLEASE ENTER YOUR USERNAME:"
+username = gets.chomp
 
-
-print_specific_employee(db, 3727)
-
-
-
+puts "HELLO, #{username.upcase} - GOOD TO SEE YOU AGAIN."
+# selection = nil
+loop do # until selection == "DONE"
+  puts "WHICH OF THE FOLLOWING FUNCTIONS WOULD YOU LIKE TO PERFORM?"
+  puts "IF FINISHED, PLEASE TYPE DONE"
+  puts "*" * 40
+  puts "1. Enter a new employee"
+  puts "2. Update an employee's records"
+  puts "3. Delete an employee"
+  puts "4. Print out an employee list"
+  puts "5. Enter a new business"
+  puts "6. Update a business record"
+  puts "7. Delete a business"
+  puts "8. Print out a business list"
+  puts "*" * 40
+  selection = gets.chomp
+    if selection.downcase == "done"
+      break
+    elsif selection.to_i == 1
+      puts "What is the employees first name?"
+      first_name = gets.chomp.downcase.capitalize
+      puts "What is the employees last name?"
+      last_name = gets.chomp.downcase.capitalize
+      puts "What is the employees title?"
+      title = gets.chomp.split('').capitalize.join('')
+      puts "What is the employees wage?"
+      wage = gets.chomp.to_i
+      puts "What are the employees last four digits of their Social Security Number?"
+      last_four_ssn = gets.chomp.to_i
+      puts "What is the employee's business ID?"
+      business_id = gets.chomp.to_i
+      create_employee(db, first_name, last_name, wage, title, last_four_ssn, business_id)
+      print_specific_employee(db, last_four_ssn)
+    end
+end
 
 
 
