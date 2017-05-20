@@ -30,7 +30,7 @@ SQL
 db.execute(employee_table)
 db.execute(businesses_table)
 
-### CREATE NEW EMPLOYEES ###
+### CREATE & MANIPULATE EMPLOYEES ###
 
 def create_employee(database, first_name, last_name, wage, title, last_four_ssn, business_id)
   database.execute("INSERT INTO employees (first_name, last_name, wage, title, last_four_ssn, business_id) VALUES (?, ?, ?, ?, ?, ?)", [first_name, last_name, wage, title, last_four_ssn, business_id])
@@ -85,7 +85,7 @@ def print_quick_list(database)
 end
 
 
-### CREATE BUSINESSES ###
+### CREATE & MANIPULATE BUSINESSES ###
 
 def create_business(database, name, industry)
   database.execute("INSERT INTO businesses (name, industry) VALUES (?, ?)", [name, industry])
@@ -122,6 +122,11 @@ def print_specific_business(database, primary_key)
 end
 
 
+businesses = db.execute('SELECT * FROM businesses')
+employees = db.execute('SELECT * FROM employees')
+
+### USER INTERFACE ###
+
 # 20.times do 
 #   create_employee(db, Faker::Name.first_name, Faker::Name.last_name, Faker::Number.between(20000, 1000000), Faker::Job.title, Faker::Number.number(4), Faker::Number.between(1, 10))
 # end
@@ -129,11 +134,6 @@ end
 # 10.times do 
 # create_business(db, Faker::Company.name, Faker::Job.field)
 # end
-
-businesses = db.execute('SELECT * FROM businesses')
-employees = db.execute('SELECT * FROM employees')
-
-### USER INTERFACE ###
 
 puts "WELCOME TO PWC EMPLOYEE/BUSINESS DATABASE. PLEASE ENTER YOUR USERNAME:"
 username = gets.chomp
