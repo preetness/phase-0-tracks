@@ -1,0 +1,20 @@
+Key Design Philosophies of Linux:
+
+* Linux assumes that the user is competent with their computer, and it gives the power to do whatever they want with their  machine
+
+* Linux respects its users by allowing flexibility, simplicity, and the freedom to do as they please
+
+* Linux is unique in its open-source nature (as opposed to other popular options such as Windows or Mac OS)
+
+* It is designed with a very open-ended, feature-minded approach
+
+* It allows its users to freely distribute copies of modified version, and to make changes as they see fit
+
+
+What is a Virtual Private Server?
+
+A VPS is a virtual machine that mimics what an actual, physical web serving machine can offer. This allows developers to serve up websites for others to access, in a way that is much cheaper than actually using a physical server. Some advantages to this approach are being able to make customizations, having complete control over your environment, and being able to dedicate resources as you please.
+
+
+It is considered a bad idea to run programs as a root user because of potential security vulnerability concerns. It is best to run only administrative tasks as the root, and perform all other functions as a user.
+
