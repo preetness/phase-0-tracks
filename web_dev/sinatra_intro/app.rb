@@ -51,7 +51,13 @@ get '/contact' do
   "12 Seahawks Drive"
 end
 
-
+get '/great_job' do 
+  if params[:name]
+    "Good job, #{params[:name]}!"
+  else
+    "Good job!"
+  end
+end
 
 
 
