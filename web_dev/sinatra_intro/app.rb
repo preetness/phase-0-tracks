@@ -64,6 +64,17 @@ get '/:number1/plus/:number2' do
   "The numbers added together equal #{result}"
 end
 
+get '/search/:campus' do
+  campus = db.execute("SELECT * FROM students WHERE campus=?", [params[:campus]])
+   list = ""
+    campus.each do |campus|
+    list << "ID: #{campus['id']}<br>"
+    list << "Name: #{campus['name']}<br>"
+    list << "Age: #{campus['age']}<br>"
+    list << "Campus: #{campus['campus']}<br><br>"
+  end
+    list
+end
 
 
 
