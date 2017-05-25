@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Current Students</title>
+</head>
+<body>
+<h3>Here is a list of the current students:</h3>
+  <ul>
+    <% @students.each do |student| %>
+      <li><%= student['name'] %>, <%= student['age'] %>, <%= student['campus'] %></li>
+    <% end %>
+  </ul>
+</body>
+</html>
